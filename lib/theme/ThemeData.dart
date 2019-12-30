@@ -9,7 +9,7 @@ final bistroTheme = _buildBistroTheme();
 ThemeData _buildBistroTheme() {
   final ThemeData base = ThemeData.light();
   return base.copyWith(
-    primaryColor: kBistroPink100,
+    primaryColor: kBistroYellow,
     buttonTheme: base.buttonTheme.copyWith(
         buttonColor: kBistroYellow,
         textTheme: ButtonTextTheme.primary,
@@ -19,7 +19,7 @@ ThemeData _buildBistroTheme() {
       textTheme: TextTheme(
         headline: TextStyle(fontFamily: 'Rubik', fontSize: 48, fontWeight: FontWeight.normal),
         title: TextStyle(fontFamily: 'Pacifico', fontSize: 24, fontWeight: FontWeight.normal),
-        body1: TextStyle(fontFamily: 'Rubik', fontSize: 20, fontWeight: FontWeight.normal),
+        body1: TextStyle(fontFamily: 'Rubik', fontSize: 20, fontWeight: FontWeight.normal, color: Colors.white),
         body2: TextStyle(fontFamily: 'Rubik', fontSize: 20, fontWeight: FontWeight.normal),
       ),
     ),
@@ -48,6 +48,9 @@ TextTheme _buildBistroTextTheme(TextTheme base) {
       fontWeight: FontWeight.w400,
       fontSize: 14.0,
     ),
+    body2: base.body2.copyWith(
+      color: Colors.white
+    )
   ).apply(
     fontFamily: 'Raleway',
   );

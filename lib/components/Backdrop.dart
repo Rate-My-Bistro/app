@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
+import 'package:rate_my_bistro/components/MenuDateBar.dart';
 
 import '../model/Menu.dart';
 import '../pages/LoginPage.dart';
@@ -226,6 +227,7 @@ class _BackdropState extends State<Backdrop>
 
     return Scaffold(
       appBar: appBar,
+      bottomNavigationBar: MenuDateBar(),
       body: LayoutBuilder(builder: _buildStack),
     );
   }

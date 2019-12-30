@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
+import 'package:rate_my_bistro/theme/ThemeData.dart';
 
 import '../theme/Colors.dart';
 import '../model/Menu.dart';
@@ -57,7 +58,7 @@ class CategoryMenu extends StatelessWidget {
     return Center(
       child: Container(
         padding: EdgeInsets.only(top: 40.0),
-        color: kBistroPink100,
+        color: bistroTheme.primaryColor,
         child: ListView(
             children: _categories
                 .map((Category c) => _buildCategory(c, context))

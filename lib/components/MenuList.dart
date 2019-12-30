@@ -86,7 +86,6 @@ class MenuList extends StatelessWidget {
       padding: EdgeInsets.only(top: 25.0, left: 16, bottom: 16, right: 16),
       child: Column(
         children: <Widget>[
-          Text("Today", style: bistroTheme.textTheme.title,),
           SizedBox(height: 10.0,),
           Expanded(
             child: GridView.count(
