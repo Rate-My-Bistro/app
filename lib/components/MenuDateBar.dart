@@ -33,18 +33,12 @@ class _MenuDateBarState extends State<MenuDateBar> {
   }
 
   String get dateDescriptor {
-    final diff = shownWeek - currentWeek;
+    final firstDayOfTheWeek = shownDate.subtract(new Duration(days: shownDate.weekday));
+    final lastDayOfTheWeek = shownDate.add(new Duration(days: 7 - shownDate.weekday));
+    String firstDate = firstDayOfTheWeek.day.toString() + "." + firstDayOfTheWeek.month.toString();
+    String lastDate = lastDayOfTheWeek.day.toString() + "." + lastDayOfTheWeek.month.toString();
 
-    switch (diff) {
-      case 1:
-        return 'Next Week';
-      case 0:
-        return 'This Week';
-      case -1:
-        return 'Last Week';
-      default:
-        return 'Week ' + shownWeek.toString();
-    }
+    return firstDate + " - " + lastDate;
   }
 
   @override
@@ -52,11 +46,11 @@ class _MenuDateBarState extends State<MenuDateBar> {
     return Container(
       margin: EdgeInsets.zero,
       padding: EdgeInsets.zero,
-      color: Color.fromRGBO(255, 255, 255, 0.8),
-      height: 40.0,
+//      color: Colors.transparent,
+      height: 45.0,
       child: BottomAppBar(
         elevation: 1.5,
-        color: Colors.transparent,
+        color: bistroTheme.primaryColor,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[

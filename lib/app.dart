@@ -21,7 +21,7 @@ class BistroApp extends StatefulWidget {
 /// @since  1.0.0
 ///
 class _BistroAppState extends State<BistroApp> {
-  Category _currentCategory = Category.all;
+  Category _currentCategory = Category.Home;
 
   void _onCategoryTap(Category category) {
     setState(() {

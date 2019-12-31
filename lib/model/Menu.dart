@@ -14,7 +14,7 @@
 
 import 'package:flutter/foundation.dart';
 
-enum Category { all, accessories, clothing, home, }
+enum Category { Home, Profile, Settings, Logout, }
 
 class Menu {
   const Menu({
@@ -33,10 +33,11 @@ class Menu {
   final int id;
   final bool isFeatured;
   final String name;
-  final int price;
+  final double price;
 
-  String get assetName => '$id-0.jpg';
-  String get assetPackage => 'shrine_images';
+  int get assetId => id % 6;
+  String get assetName => 'missing_picture_$assetId.jpg';
+  String get assetPackage => 'assets/food';
 
   @override
   String toString() => "$name (id=$id)";

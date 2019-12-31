@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:rate_my_bistro/theme/Colors.dart';
+import 'package:rate_my_bistro/theme/ThemeData.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -16,6 +17,7 @@ class _LoginPageState extends State<LoginPage> {
     final ThemeData theme = Theme.of(context);
 
     return Scaffold(
+      bottomSheet: Center(heightFactor: 1.5, child: Text("made with  🧔️/🐻/🐖️  by ansgar", style: bistroTheme.textTheme.body1.apply(fontFamily: 'Pacifico'),)),
       body: SafeArea(
         child: ListView(
           padding: EdgeInsets.symmetric(horizontal: 24.0),

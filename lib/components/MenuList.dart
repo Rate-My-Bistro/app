@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:rate_my_bistro/pages/MenuDetailPage.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:rate_my_bistro/theme/ThemeData.dart';
+
 
 import '../model/MenuRepository.dart';
 import '../model/Menu.dart';
@@ -11,7 +13,7 @@ class MenuList extends StatelessWidget {
   final Function onMenuTap;
   final Function onCategoryTap;
 
-  const MenuList({this.category: Category.all, this.onMenuTap, this.onCategoryTap });
+  const MenuList({this.category: Category.Home, this.onMenuTap, this.onCategoryTap });
 
   List<GestureDetector> _buildMenuList(BuildContext context) {
     List<Menu> products = MenusRepository.loadMenus(category);
@@ -45,29 +47,48 @@ class MenuList extends StatelessWidget {
               AspectRatio(
                 aspectRatio: 15 / 11,
                 child: Image.asset(
-                    product.assetName,
-                    package: product.assetPackage,
-                    fit: BoxFit.fitWidth
+                    product.assetPackage + "/" + product.assetName,
+                    fit: BoxFit.cover
                 ),
               ),
               Expanded(
                 child: Padding(
-                  padding: EdgeInsets.fromLTRB(16.0, 12.0, 16.0, 8.0),
+                  padding: EdgeInsets.fromLTRB(16.0, 12.0, 16.0, 1.0),
                   child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.end,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.start,
+
                     children: <Widget>[
-                      Text(
-                        product == null ? '' : product.name,
-                        style: theme.textTheme.button,
-                        softWrap: false,
-                        overflow: TextOverflow.ellipsis,
-                        maxLines: 1,
-                      ),
-                      SizedBox(height: 4.0),
-                      Text(
-                        product == null ? '' : formatter.format(product.price),
-                        style: theme.textTheme.caption,
+                      Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: <Widget>[
+                        Column(
+                          children: <Widget>[
+                            Text(product.name, style: bistroTheme.textTheme.title,),
+                            SizedBox(height: 5.0,),
+                            Text("mit Pommes und Kirschtomaten"),
+                            SizedBox(height: 5.0,),
+                          ],
+                        ),
+                        Text(product.price.toStringAsFixed(2) + "€", style: bistroTheme.textTheme.title,)
+                      ]),
+                      Divider(height: 1.0, thickness: 1.0,),
+                      Center(
+                        child: RatingBar(
+                          initialRating: 3,
+                          direction: Axis.horizontal,
+                          allowHalfRating: true,
+                          itemCount: 5,
+                          itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
+                          itemBuilder: (context, _) => Icon(
+                            Icons.star,
+                            color: Colors.amber,
+                          ),
+                          onRatingUpdate: (rating) {
+                            print(rating);
+                          },
+                        ),
                       ),
                     ],
                   ),
