@@ -210,18 +210,6 @@ class _BackdropState extends State<Backdrop>
             );
           },
         ),
-        IconButton(
-          icon: Icon(
-            Icons.tune,
-            semanticLabel: 'login',
-          ),
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (BuildContext context) => LoginPage()),
-            );
-          },
-        ),
       ],
     );
 

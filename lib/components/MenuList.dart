@@ -53,11 +53,10 @@ class MenuList extends StatelessWidget {
               ),
               Expanded(
                 child: Padding(
-                  padding: EdgeInsets.fromLTRB(16.0, 12.0, 16.0, 1.0),
+                  padding: EdgeInsets.fromLTRB(16.0, 5.0, 16.0, 1.0),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.start,
-
                     children: <Widget>[
                       Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -65,15 +64,22 @@ class MenuList extends StatelessWidget {
                           children: <Widget>[
                         Column(
                           children: <Widget>[
-                            Text(product.name, style: bistroTheme.textTheme.title,),
+                            Text(product.name, style: bistroTheme.textTheme.title, overflow: TextOverflow.ellipsis),
                             SizedBox(height: 5.0,),
-                            Text("mit Pommes und Kirschtomaten"),
-                            SizedBox(height: 5.0,),
+                            Text("mit Pommes und Kirschtomaten", style: bistroTheme.textTheme.subtitle, overflow: TextOverflow.ellipsis ,),
+                            SizedBox(height: 5.0,)
                           ],
                         ),
-                        Text(product.price.toStringAsFixed(2) + "€", style: bistroTheme.textTheme.title,)
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: <Widget>[
+                            Text(product.price.toStringAsFixed(2) + "€", style: bistroTheme.textTheme.title,)
+                          ],
+                        )
                       ]),
                       Divider(height: 1.0, thickness: 1.0,),
+                      SizedBox(height: 5.0,),
                       Center(
                         child: RatingBar(
                           initialRating: 3,
