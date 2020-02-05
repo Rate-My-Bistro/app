@@ -57,7 +57,7 @@ class CategoryMenu extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Container(
-        padding: EdgeInsets.only(top: 40.0),
+        padding: EdgeInsets.only(top: 50.0),
         color: bistroTheme.primaryColor,
         child: ListView(
             children: _categories

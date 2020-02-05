@@ -8,9 +8,13 @@ dependencies:
   intl: ^0.15.6
 
   cupertino_icons: ^0.1.0
-  shrine_images: 1.1.1
+  # shrine_images: 1.1.1
+  shared_preferences: ^0.5.6+1
   flutter_rating_bar: ^3.0.0+1
+  redux_logging: ^0.4.0
   bubble: ^1.1.9+1
+  redux: 4.0.0
+  flutter_redux: 0.6.0
 
 dev_dependencies:
   flutter_launcher_icons: "^0.7.3"

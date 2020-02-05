@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
-import 'package:rate_my_bistro/components/MenuDateBar.dart';
 
 import '../model/Menu.dart';
 import '../pages/LoginPage.dart';
@@ -215,7 +214,6 @@ class _BackdropState extends State<Backdrop>
 
     return Scaffold(
       appBar: appBar,
-      bottomNavigationBar: MenuDateBar(),
       body: LayoutBuilder(builder: _buildStack),
     );
   }
@@ -236,7 +234,7 @@ class _FrontLayer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
-      elevation: 16.0,
+      elevation: 5.0,
       shape: BeveledRectangleBorder(
         borderRadius: BorderRadius.only(topLeft: Radius.circular(46.0)),
       ),

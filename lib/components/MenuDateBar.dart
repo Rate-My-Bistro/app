@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:rate_my_bistro/theme/Colors.dart';
 import 'package:rate_my_bistro/theme/ThemeData.dart';
 
 class MenuDateBar extends StatefulWidget {
@@ -43,29 +44,33 @@ class _MenuDateBarState extends State<MenuDateBar> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.zero,
-      padding: EdgeInsets.zero,
-//      color: Colors.transparent,
-      height: 45.0,
-      child: BottomAppBar(
-        elevation: 1.5,
-        color: bistroTheme.primaryColor,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: <Widget>[
-            IconButton(
-              icon: Icon(Icons.chevron_left, color: Colors.white),
-              onPressed: onPreviousDay,
+    return Expanded(
+      child: Container(
+        padding: EdgeInsets.only(top: 5, bottom: 5),
+        child: Material(
+            color: Colors.white10,
+            shape: BeveledRectangleBorder(
+              borderRadius: BorderRadius.only(topLeft: Radius.circular(25.0)),
             ),
-            Text(dateDescriptor, style: bistroTheme.appBarTheme.textTheme.body1,),
-            IconButton(
-              icon: Icon(Icons.chevron_right, color: Colors.white),
-              onPressed: onNextDay,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: <Widget>[
+                IconButton(
+                  icon: Icon(Icons.chevron_left, color: bistroTheme.primaryColor),
+                  onPressed: onPreviousDay,
+                ),
+                Text(
+                  dateDescriptor,
+                  style: bistroTheme.textTheme.title.apply(color: bistroTheme.primaryColor),
+                ),
+                IconButton(
+                  icon: Icon(Icons.chevron_right, color: bistroTheme.primaryColor),
+                  onPressed: onNextDay,
+                )
+              ],
             )
-          ],
-        ),
-      ),
+        )
+      )
     );
   }
 }

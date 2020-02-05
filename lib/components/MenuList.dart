@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:rate_my_bistro/components/MenuDateBar.dart';
 import 'package:rate_my_bistro/pages/MenuDetailPage.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:rate_my_bistro/theme/ThemeData.dart';
@@ -37,9 +38,6 @@ class MenuList extends StatelessWidget {
           );
         },
         child: Card(
-          shape:  BeveledRectangleBorder(
-            borderRadius: BorderRadius.only(topLeft: Radius.circular(46.0)),
-          ),
           clipBehavior: Clip.antiAlias,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -110,10 +108,10 @@ class MenuList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(top: 25.0, left: 16, bottom: 16, right: 16),
+      padding: EdgeInsets.only(top: 2.0, left: 5.0, bottom: 3, right: 5),
       child: Column(
         children: <Widget>[
-          SizedBox(height: 10.0,),
+          Row(children: <Widget>[MenuDateBar()]),
           Expanded(
             child: GridView.count(
                 crossAxisCount: 1,
