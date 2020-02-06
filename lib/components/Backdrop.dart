@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
 
 import '../model/Menu.dart';
-import '../pages/LoginPage.dart';
+import '../pages/login/SignInPage.dart';
 
 const double _kFlingVelocity = 2.0;
 
@@ -205,7 +205,7 @@ class _BackdropState extends State<Backdrop>
           onPressed: () {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (BuildContext context) => LoginPage()),
+              MaterialPageRoute(builder: (BuildContext context) => SignInPage()),
             );
           },
         ),

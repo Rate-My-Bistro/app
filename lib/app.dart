@@ -5,7 +5,7 @@ import 'package:rate_my_bistro/pages/MenuListPage.dart';
 import 'package:rate_my_bistro/state/Keys.dart';
 import 'package:redux/redux.dart';
 
-import 'pages/LoginPage.dart';
+import 'pages/login/SignInPage.dart';
 import 'theme/ThemeData.dart';
 import 'model/Menu.dart';
 
@@ -46,8 +46,8 @@ class _BistroAppState extends State<BistroApp> {
           initialRoute: "/signin",
           navigatorKey: Keys.navKey,
           routes:  <String, WidgetBuilder>{
-            "/signin": (BuildContext context) => new LoginPage(),
-            "/signup": (BuildContext context) => new LoginPage(),
+            "/signin": (BuildContext context) => new SignInPage(),
+            "/signup": (BuildContext context) => new SignInPage(),
           }
       ),
     );

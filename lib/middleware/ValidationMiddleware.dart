@@ -33,8 +33,8 @@ class ValidationMiddleware extends MiddlewareClass<AppState> {
     }
 
     if(action is ValidateLoginFields){
-      validateEmail(ScreenState.SINGIN,action.email, next);
-      validatePassword(ScreenState.SINGIN,action.password, next);
+      validateEmail(ScreenState.SIGNIN,action.email, next);
+      validatePassword(ScreenState.SIGNIN,action.password, next);
       RegExp exp = new RegExp(emailPattern);
       if(!exp.hasMatch(action.email) || action.password.length<6){
         next(ChangeLoadingStatusAction(LoadingStatus.ERROR));

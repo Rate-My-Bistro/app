@@ -1,5 +1,7 @@
 enum ScreenState{
   WELCOME,
-  SINGIN,
-  SIGNUP
+  SIGNIN,
+  SIGNUP,
+  HOME,
+  DETAIL
 }

@@ -1,24 +1,50 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_redux/flutter_redux.dart';
+import 'package:rate_my_bistro/actions/AuthActions.dart';
 
 import 'package:rate_my_bistro/theme/Colors.dart';
 import 'package:rate_my_bistro/theme/ThemeData.dart';
 
-class LoginPage extends StatefulWidget {
+import 'SignInViewModel.dart';
+
+class SignInPage extends StatefulWidget {
   @override
-  _LoginPageState createState() => _LoginPageState();
+  _SignInPageState createState() => _SignInPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
-  final _usernameController = TextEditingController();
+class _SignInPageState extends State<SignInPage> {
+  final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
+    return new Scaffold(
+      body: new StoreConnector(
+          onInit: (store) {
+            store.dispatch(new ClearErrorsAction());
+            store.dispatch(new CheckTokenAction(
+              // TODO: Implement
+              hasTokenCallback: () {},
+              // TODO: Implement
+              noTokenCallback: () {},
+            ));
+          },
+          converter: (store) => SignInViewModel.fromStore(store),
+          builder: (_, viewModel) => buildContent(viewModel, theme),
+      ),
+      bottomSheet: Center(
+          heightFactor: 1.5,
+          child: Text(
+            "made with  🧔️/🐻/🐖️  by ansgar",
+            style: bistroTheme.textTheme.body1.apply(fontFamily: 'Pacifico')
+          )
+      ),
+    );
+  }
 
-    return Scaffold(
-      bottomSheet: Center(heightFactor: 1.5, child: Text("made with  🧔️/🐻/🐖️  by ansgar", style: bistroTheme.textTheme.body1.apply(fontFamily: 'Pacifico'),)),
-      body: SafeArea(
+  Widget buildContent(SignInViewModel viewModel, ThemeData theme) {
+    return SafeArea(
         child: ListView(
           padding: EdgeInsets.symmetric(horizontal: 24.0),
           children: <Widget>[
@@ -34,20 +60,29 @@ class _LoginPageState extends State<LoginPage> {
             AccentColorOverride(
               color: kBistroBrown900,
               child: TextField(
-                controller: _usernameController,
+                keyboardType: TextInputType.emailAddress,
+                controller: _emailController,
                 decoration: InputDecoration(
-                  labelText: 'Username',
+                  labelText: 'Email',
                 ),
+                onChanged: (email) {
+                  viewModel.validateEmail(email);
+                },
               ),
             ),
             SizedBox(height: 12.0),
             AccentColorOverride(
               color: kBistroBrown900,
               child: TextField(
+                obscureText: true,
+                keyboardType: TextInputType.text,
                 controller: _passwordController,
                 decoration: InputDecoration(
                   labelText: 'Password',
                 ),
+                onChanged: (password) {
+                  viewModel.validatePassword(password);
+                },
               ),
             ),
             ButtonBar(
@@ -59,7 +94,7 @@ class _LoginPageState extends State<LoginPage> {
                     borderRadius: BorderRadius.all(Radius.circular(7.0)),
                   ),
                   onPressed: () {
-                    _usernameController.clear();
+                    _emailController.clear();
                     _passwordController.clear();
                   },
                 ),
@@ -71,14 +106,14 @@ class _LoginPageState extends State<LoginPage> {
                     borderRadius: BorderRadius.all(Radius.circular(7.0)),
                   ),
                   onPressed: () {
-                    Navigator.pop(context);
+                    viewModel.login(viewModel.email,viewModel.password);
+                    viewModel.navigateToHome();
                   },
                 )
               ],
             ),
           ],
         ),
-      ),
     );
   }
 }

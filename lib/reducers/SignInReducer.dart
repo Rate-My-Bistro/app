@@ -34,13 +34,13 @@ SignInState _changeLoadingStatusAction(SignInState state, ChangeLoadingStatusAct
     state.copyWith(loadingStatus: action.status);
 
 SignInState _emailErrorAction(SignInState state, EmailErrorAction action){
-  if(action.screenState == ScreenState.SINGIN){
+  if(action.screenState == ScreenState.SIGNIN){
     return state.copyWith(emailError: action.message);
   }else return state;
 }
 
 SignInState _passwordErrorAction(SignInState state, PasswordErrorAction action){
-  if (action.screenState == ScreenState.SINGIN) {
+  if (action.screenState == ScreenState.SIGNIN) {
     return state.copyWith(passwordError: action.message);
   }else return state;
 }
