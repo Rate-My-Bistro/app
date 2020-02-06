@@ -1,4 +1,8 @@
-class SignUpRequest{
+///
+/// TODO: Validate necessity of this file
+///
+
+class SignUpRequest {
   String email;
   String password;
   String retypePassword;

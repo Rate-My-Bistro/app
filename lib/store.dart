@@ -8,8 +8,19 @@ import 'middleware/LocalStorageMiddleware.dart';
 import 'middleware/NavigationMiddleware.dart';
 import 'middleware/ValidationMiddleware.dart';
 
+/// Creates a Redux Store for maintaining
+/// the application state
+///
+/// Adds additional middleware for validation,
+/// persistence and communication
+///
+/// Fetches any existing state from local storage
+///
+/// @return store used for maintaining the application's state
+///
 Future<Store<AppState>> createStore() async {
   var prefs = await SharedPreferences.getInstance();
+
   return Store(
     appReducer,
     initialState: AppState.initial(),

@@ -1,64 +1,81 @@
-import 'package:rate_my_bistro/actions/AuthActions.dart';
-import 'package:rate_my_bistro/state/AuthState.dart';
-import 'package:rate_my_bistro/state/LoadingStatus.dart';
-import 'package:rate_my_bistro/state/ScreenState.dart';
 import 'package:redux/redux.dart';
 
+import '../actions/AuthActions.dart';
+import '../state/AuthState.dart';
+import '../state/LoadingStatus.dart';
+import '../state/ScreenState.dart';
+
+/// Composition of all auth related handlers
+///
+/// @author Ansgar Sachs <ansgar.sachs@cgm.com>
+///
 final authReducer = combineReducers<AuthState>([
-  TypedReducer<AuthState,ValidateEmailAction>(_validateEmail),
-  TypedReducer<AuthState,ValidatePasswordAction>(_validatePassword),
-  TypedReducer<AuthState,ValidateLoginFields>(_validateLoginFieldsAction),
-  TypedReducer<AuthState,ValidatePasswordMatchAction>(_validatePasswordMatch),
-  TypedReducer<AuthState,ValidateCodeAction>(_validateCodeAction),
-  TypedReducer<AuthState,ChangeLoadingStatusAction>(_changeLoadingStatusAction),
-  TypedReducer<AuthState,EmailErrorAction>(_emailErrorAction),
-  TypedReducer<AuthState,PasswordErrorAction>(_passwordErrorAction),
-  TypedReducer<AuthState,RetypePasswordErrorAction>(_retypePasswordErrorAction),
-  TypedReducer<AuthState,CodeErrorAction>(_codeErrorAction),
-  TypedReducer<AuthState,SignInAction>(_signInAction),
-  TypedReducer<AuthState,SignUpAction>(_signUpAction),
-  TypedReducer<AuthState,SaveTokenAction>(_saveToken),
-  TypedReducer<AuthState,RequestCodeAction>(_requestCodeAction),
-  TypedReducer<AuthState,ConfirmForgotPasswordAction>(_confirmCodeAction),
-  TypedReducer<AuthState,NavigateToRegistrationAction>(_navigateToRegistrationAction),
-  TypedReducer<AuthState,CheckTokenAction>(_checkTokenAction),
-  TypedReducer<AuthState,ClearErrorsAction>(_clearErrorsAction)
+  TypedReducer<AuthState, ValidateEmailAction>(_validateEmail),
+  TypedReducer<AuthState, ValidatePasswordAction>(_validatePassword),
+  TypedReducer<AuthState, ValidateLoginFields>(_validateLoginFieldsAction),
+  TypedReducer<AuthState, ValidatePasswordMatchAction>(_validatePasswordMatch),
+  TypedReducer<AuthState, ValidateCodeAction>(_validateCodeAction),
+  TypedReducer<AuthState, ChangeLoadingStatusAction>(
+      _changeLoadingStatusAction),
+  TypedReducer<AuthState, EmailErrorAction>(_emailErrorAction),
+  TypedReducer<AuthState, PasswordErrorAction>(_passwordErrorAction),
+  TypedReducer<AuthState, RetypePasswordErrorAction>(
+      _retypePasswordErrorAction),
+  TypedReducer<AuthState, CodeErrorAction>(_codeErrorAction),
+  TypedReducer<AuthState, SignInAction>(_signInAction),
+  TypedReducer<AuthState, SignUpAction>(_signUpAction),
+  TypedReducer<AuthState, SaveTokenAction>(_saveToken),
+  TypedReducer<AuthState, RequestCodeAction>(_requestCodeAction),
+  TypedReducer<AuthState, ConfirmForgotPasswordAction>(_confirmCodeAction),
+  TypedReducer<AuthState, NavigateToRegistrationAction>(
+      _navigateToRegistrationAction),
+  TypedReducer<AuthState, CheckTokenAction>(_checkTokenAction),
+  TypedReducer<AuthState, ClearErrorsAction>(_clearErrorsAction)
 ]);
 
-AuthState _validateEmail(AuthState state, ValidateEmailAction action){
+AuthState _validateEmail(AuthState state, ValidateEmailAction action) {
   return state.copyWith(email: action.email);
 }
 
 AuthState _validatePassword(AuthState state, ValidatePasswordAction action) =>
     state.copyWith(password: action.password);
 
-AuthState _validateLoginFieldsAction(AuthState state, ValidateLoginFields action) => state;
+AuthState _validateLoginFieldsAction(
+        AuthState state, ValidateLoginFields action) =>
+    state;
 
-AuthState _validatePasswordMatch(AuthState state, ValidatePasswordMatchAction action) =>
-    state.copyWith(password: action.password,retypePassword: action.confirmPassword);
+AuthState _validatePasswordMatch(
+        AuthState state, ValidatePasswordMatchAction action) =>
+    state.copyWith(
+        password: action.password, retypePassword: action.confirmPassword);
 
 AuthState _validateCodeAction(AuthState state, ValidateCodeAction action) =>
     state.copyWith(code: action.code);
 
-AuthState _changeLoadingStatusAction(AuthState state, ChangeLoadingStatusAction action) =>
+AuthState _changeLoadingStatusAction(
+        AuthState state, ChangeLoadingStatusAction action) =>
     state.copyWith(loadingStatus: action.status);
 
-AuthState _emailErrorAction(AuthState state, EmailErrorAction action){
-  if(action.screenState == ScreenState.SIGNUP){
+AuthState _emailErrorAction(AuthState state, EmailErrorAction action) {
+  if (action.screenState == ScreenState.SIGNUP) {
     return state.copyWith(emailError: action.message);
-  }else return state;
+  } else
+    return state;
 }
 
-AuthState _passwordErrorAction(AuthState state, PasswordErrorAction action){
+AuthState _passwordErrorAction(AuthState state, PasswordErrorAction action) {
   if (action.screenState == ScreenState.SIGNUP) {
     return state.copyWith(passwordError: action.message);
-  }else return state;
+  } else
+    return state;
 }
 
-AuthState _retypePasswordErrorAction(AuthState state, RetypePasswordErrorAction action) {
+AuthState _retypePasswordErrorAction(
+    AuthState state, RetypePasswordErrorAction action) {
   if (action.screenState == ScreenState.SIGNUP) {
     return state.copyWith(retypePasswordError: action.message);
-  }else return state;
+  } else
+    return state;
 }
 
 AuthState _codeErrorAction(AuthState state, CodeErrorAction action) =>
@@ -71,13 +88,22 @@ AuthState _signUpAction(AuthState state, SignUpAction action) => state;
 AuthState _saveToken(AuthState state, SaveTokenAction action) =>
     state.copyWith(token: action.token);
 
-AuthState _requestCodeAction(AuthState state, RequestCodeAction action) => state;
+AuthState _requestCodeAction(AuthState state, RequestCodeAction action) =>
+    state;
 
-AuthState _confirmCodeAction(AuthState state, ConfirmForgotPasswordAction action) => state;
+AuthState _confirmCodeAction(
+        AuthState state, ConfirmForgotPasswordAction action) =>
+    state;
 
-AuthState _navigateToRegistrationAction(AuthState state,NavigateToRegistrationAction action) => state;
+AuthState _navigateToRegistrationAction(
+        AuthState state, NavigateToRegistrationAction action) =>
+    state;
 
 AuthState _checkTokenAction(AuthState state, CheckTokenAction action) => state;
 
 AuthState _clearErrorsAction(AuthState state, ClearErrorsAction action) =>
-    state.copyWith(loadingStatus: LoadingStatus.SUCCESS, emailError: "", passwordError: "", retypePasswordError: "");
+    state.copyWith(
+        loadingStatus: LoadingStatus.SUCCESS,
+        emailError: "",
+        passwordError: "",
+        retypePasswordError: "");

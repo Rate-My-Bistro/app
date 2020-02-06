@@ -1,126 +1,134 @@
 import 'dart:ui';
 
-import 'package:rate_my_bistro/state/LoadingStatus.dart';
-import 'package:rate_my_bistro/state/ScreenState.dart';
-
+import '../state/LoadingStatus.dart';
+import '../state/ScreenState.dart';
 import 'AuthRequest.dart';
 import 'SignUpRequest.dart';
 
-class ValidateEmailAction{
+/// Collection of all triggers to change the auth state
+///
+/// @author Ansgar Sachs <ansgar.sachs@cgm.com>
+///
+
+class ValidateEmailAction {
   final String email;
   final ScreenState screenState;
 
   ValidateEmailAction(this.email, this.screenState);
 }
 
-class ValidatePasswordAction{
+class ValidatePasswordAction {
   final String password;
   final ScreenState screenState;
 
   ValidatePasswordAction(this.password, this.screenState);
 }
 
-class ValidateLoginFields{
+class ValidateLoginFields {
   final String email;
   final String password;
 
   ValidateLoginFields(this.email, this.password);
 }
 
-class ValidatePasswordMatchAction{
+class ValidatePasswordMatchAction {
   final String password;
   final String confirmPassword;
   final ScreenState screenState;
 
-  ValidatePasswordMatchAction(this.password, this.confirmPassword, this.screenState);
+  ValidatePasswordMatchAction(
+      this.password, this.confirmPassword, this.screenState);
 }
 
-class ValidateSignUpFieldsAction{
+class ValidateSignUpFieldsAction {
   final SignUpRequest request;
+
   ValidateSignUpFieldsAction(this.request);
 }
 
-class ValidateCodeAction{
+class ValidateCodeAction {
   final String code;
+
   ValidateCodeAction(this.code);
 }
 
-class ChangeScreenStateAction{
+class ChangeScreenStateAction {
   final ScreenState type;
+
   ChangeScreenStateAction(this.type);
 }
 
-class ChangeLoadingStatusAction{
+class ChangeLoadingStatusAction {
   final LoadingStatus status;
+
   ChangeLoadingStatusAction(this.status);
 }
 
-class EmailErrorAction{
+class EmailErrorAction {
   final String message;
   final ScreenState screenState;
-
 
   EmailErrorAction(this.message, this.screenState);
 }
 
-class PasswordErrorAction{
+class PasswordErrorAction {
   final String message;
   final ScreenState screenState;
 
   PasswordErrorAction(this.message, this.screenState);
 }
 
-class RetypePasswordErrorAction{
+class RetypePasswordErrorAction {
   final String message;
   final ScreenState screenState;
 
   RetypePasswordErrorAction(this.message, this.screenState);
 }
 
-class CodeErrorAction{
+class CodeErrorAction {
   final String message;
 
   CodeErrorAction(this.message);
 }
 
-class SignInAction{
+class SignInAction {
   final AuthRequest request;
 
   SignInAction(this.request);
 }
 
-class SignUpAction{
+class SignUpAction {
   final SignUpRequest request;
 
   SignUpAction(this.request);
 }
 
-class SaveTokenAction{
+class SaveTokenAction {
   final String token;
 
   SaveTokenAction(this.token);
 }
 
-class RequestCodeAction{
+class RequestCodeAction {
   final String email;
 
   RequestCodeAction(this.email);
 }
 
-class ConfirmForgotPasswordAction{
+class ConfirmForgotPasswordAction {
   final String code;
   final String password;
 
   ConfirmForgotPasswordAction(this.code, this.password);
 }
 
-class CheckTokenAction{
+class CheckTokenAction {
   final VoidCallback hasTokenCallback;
   final VoidCallback noTokenCallback;
 
   CheckTokenAction({this.hasTokenCallback, this.noTokenCallback});
 }
 
-class ClearErrorsAction{}
+class ClearErrorsAction {}
 
-class NavigateToRegistrationAction{}
+class NavigateToRegistrationAction {}

@@ -3,10 +3,15 @@ import 'package:meta/meta.dart';
 import 'LoadingStatus.dart';
 import 'ScreenState.dart';
 
+/// Sign In State of the application
+///
+/// Contains all properties to
+/// to fulfill the sign in workflow
+///
+/// @author Ansgar Sachs <ansgar.sachs@cgm.com>
+///
 @immutable
-class SignInState{
-
-
+class SignInState {
   final ScreenState type;
   final LoadingStatus loadingStatus;
   final String password;
@@ -16,9 +21,15 @@ class SignInState{
   final String code;
   final String codeError;
 
-  SignInState({this.type, this.loadingStatus, this.password, this.passwordError,
-    this.email, this.emailError, this.code, this.codeError});
-
+  SignInState(
+      {this.type,
+      this.loadingStatus,
+      this.password,
+      this.passwordError,
+      this.email,
+      this.emailError,
+      this.code,
+      this.codeError});
 
   SignInState copyWith({
     ScreenState type,
@@ -32,7 +43,7 @@ class SignInState{
     String token,
     String code,
     String codeError,
-  }){
+  }) {
     return new SignInState(
         type: type ?? this.type,
         loadingStatus: loadingStatus ?? this.loadingStatus,
@@ -41,11 +52,10 @@ class SignInState{
         email: email ?? this.email,
         emailError: emailError ?? this.emailError,
         code: code ?? this.code,
-        codeError: codeError ?? this.codeError
-    );
+        codeError: codeError ?? this.codeError);
   }
 
-  factory SignInState.initial(){
+  factory SignInState.initial() {
     return new SignInState(
         type: ScreenState.WELCOME,
         loadingStatus: LoadingStatus.SUCCESS,
@@ -55,6 +65,5 @@ class SignInState{
         emailError: "",
         code: "",
         codeError: "");
-
   }
 }

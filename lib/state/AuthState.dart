@@ -2,9 +2,15 @@ import 'package:meta/meta.dart';
 
 import 'LoadingStatus.dart';
 
+/// Auth State of the application
+///
+/// Contains all properties to
+/// to fulfill the auth workflow
+///
+/// @author Ansgar Sachs <ansgar.sachs@cgm.com>
+///
 @immutable
-class AuthState{
-
+class AuthState {
   final LoadingStatus loadingStatus;
   final String password;
   final String passwordError;
@@ -16,20 +22,19 @@ class AuthState{
   final String code;
   final String codeError;
 
-  AuthState({
-    @required this.loadingStatus,
-    @required this.password,
-    @required this.passwordError,
-    @required this.retypePassword,
-    @required this.retypePasswordError,
-    @required this.email,
-    @required this.emailError,
-    @required this.token,
-    @required this.code,
-    @required this.codeError
-  });
+  AuthState(
+      {@required this.loadingStatus,
+      @required this.password,
+      @required this.passwordError,
+      @required this.retypePassword,
+      @required this.retypePasswordError,
+      @required this.email,
+      @required this.emailError,
+      @required this.token,
+      @required this.code,
+      @required this.codeError});
 
-  factory AuthState.initial(){
+  factory AuthState.initial() {
     return new AuthState(
         loadingStatus: LoadingStatus.SUCCESS,
         password: "",
@@ -41,7 +46,6 @@ class AuthState{
         token: "",
         code: "",
         codeError: "");
-
   }
 
   AuthState copyWith({
@@ -55,7 +59,7 @@ class AuthState{
     String token,
     String code,
     String codeError,
-  }){
+  }) {
     return new AuthState(
         loadingStatus: loadingStatus ?? this.loadingStatus,
         password: password ?? this.password,
@@ -66,25 +70,24 @@ class AuthState{
         emailError: emailError ?? this.emailError,
         token: token ?? this.token,
         code: code ?? this.code,
-        codeError: codeError ?? this.codeError
-    );
+        codeError: codeError ?? this.codeError);
   }
 
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-          other is AuthState &&
-              runtimeType == other.runtimeType &&
-              loadingStatus == other.loadingStatus &&
-              password == other.password &&
-              passwordError == other.passwordError &&
-              retypePassword == other.retypePassword &&
-              retypePasswordError == other.retypePasswordError &&
-              email == other.email &&
-              emailError == other.emailError &&
-              token == other.token &&
-              code == other.code &&
-              codeError == other.codeError;
+      other is AuthState &&
+          runtimeType == other.runtimeType &&
+          loadingStatus == other.loadingStatus &&
+          password == other.password &&
+          passwordError == other.passwordError &&
+          retypePassword == other.retypePassword &&
+          retypePasswordError == other.retypePasswordError &&
+          email == other.email &&
+          emailError == other.emailError &&
+          token == other.token &&
+          code == other.code &&
+          codeError == other.codeError;
 
   @override
   int get hashCode =>

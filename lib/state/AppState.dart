@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:rate_my_bistro/model/Menu.dart';
-import 'package:rate_my_bistro/state/AuthState.dart';
-import 'package:rate_my_bistro/state/SignInState.dart';
 
+import '../model/Menu.dart';
+import 'AuthState.dart';
+import 'SignInState.dart';
+
+/// Root State of the application
+///
+/// Composes all substates together
+///
+/// @author Ansgar Sachs <ansgar.sachs@cgm.com>
+///
 @immutable
 class AppState {
   final SignInState signInState;
@@ -10,20 +17,18 @@ class AppState {
   final List<Menu> menus;
   final Category category;
 
-  AppState({
-    @required this.signInState,
-    @required this.authState,
-    this.menus,
-    this.category
-  });
+  AppState(
+      {@required this.signInState,
+      @required this.authState,
+      this.menus,
+      this.category});
 
-  factory AppState.initial(){
+  factory AppState.initial() {
     return AppState(
         authState: AuthState.initial(),
         signInState: SignInState.initial(),
-        menus: List.unmodifiable([]) ,
-        category: null
-    );
+        menus: List.unmodifiable([]),
+        category: null);
   }
 
   AppState copyWith({
@@ -31,24 +36,23 @@ class AppState {
     SignInState signInState,
     List<Menu> menus,
     Category category,
-  }){
+  }) {
     return AppState(
         authState: authState ?? this.authState,
         signInState: signInState ?? this.signInState,
         menus: menus ?? this.menus,
-        category: category ?? this.category
-    );
+        category: category ?? this.category);
   }
 
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-          other is AppState &&
-              runtimeType == other.runtimeType &&
-              authState == other.authState &&
-              signInState == other.signInState &&
-              menus == other.menus &&
-              category == other.category;
+      other is AppState &&
+          runtimeType == other.runtimeType &&
+          authState == other.authState &&
+          signInState == other.signInState &&
+          menus == other.menus &&
+          category == other.category;
 
   @override
   int get hashCode =>
@@ -56,8 +60,4 @@ class AppState {
       signInState.hashCode ^
       category.hashCode ^
       menus.hashCode;
-}
-
-enum ListState {
-  listOnly, listWithNewItem
 }

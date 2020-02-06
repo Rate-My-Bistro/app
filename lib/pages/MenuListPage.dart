@@ -1,13 +1,15 @@
 import 'package:flutter/cupertino.dart';
 
-import 'package:rate_my_bistro/theme/ThemeData.dart';
+import '../theme/ThemeData.dart';
+import '../components/backdrop/Backdrop.dart';
+import '../components/CategoryMenu.dart';
+import '../components/MenuList.dart';
+import '../model/Menu.dart';
 
-import 'package:rate_my_bistro/components/Backdrop.dart';
-import 'package:rate_my_bistro/components/CategoryMenu.dart';
-import 'package:rate_my_bistro/components/MenuList.dart';
-
-import 'package:rate_my_bistro/model/Menu.dart';
-
+/// Page that lists all meals for a given date
+///
+/// @author Ansgar Sachs <ansgar.sachs@cgm.com>
+///
 class MenuListPage extends StatelessWidget {
   final Category currentCategory;
   final Function onMenuTap;
@@ -26,15 +28,19 @@ class MenuListPage extends StatelessWidget {
       frontLayer: MenuList(
           category: currentCategory,
           onMenuTap: onMenuTap,
-          onCategoryTap: onCategoryTap
-      ),
+          onCategoryTap: onCategoryTap),
       backLayer: CategoryMenu(
         currentCategory: currentCategory,
         onCategoryTap: onCategoryTap,
       ),
-      frontTitle: Text('Rate my Bistro', style: bistroTheme.appBarTheme.textTheme.title,),
-      backTitle: Text('Menu', style: bistroTheme.appBarTheme.textTheme.title,),
+      frontTitle: Text(
+        'Rate my Bistro',
+        style: BistroDesign.theme.appBarTheme.textTheme.title,
+      ),
+      backTitle: Text(
+        'Menu',
+        style: BistroDesign.theme.appBarTheme.textTheme.title,
+      ),
     );
   }
-
 }
