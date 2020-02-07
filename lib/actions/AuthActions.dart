@@ -1,9 +1,10 @@
 import 'dart:ui';
 
-import '../state/LoadingStatus.dart';
-import '../state/ScreenState.dart';
-import 'AuthRequest.dart';
-import 'SignUpRequest.dart';
+import 'package:rate_my_bistro/actions/AuthRequest.dart';
+import 'package:rate_my_bistro/actions/SignUpRequest.dart';
+import 'package:rate_my_bistro/state/LoadingStatus.dart';
+import 'package:rate_my_bistro/state/ScreenState.dart';
+
 
 /// Collection of all triggers to change the auth state
 ///

@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
+import 'package:rate_my_bistro/model/Menu.dart';
 import 'package:rate_my_bistro/pages/MenuDetailPage.dart';
+import 'package:rate_my_bistro/pages/login/SignInPage.dart';
 import 'package:rate_my_bistro/state/AppState.dart';
 import 'package:rate_my_bistro/pages/MenuListPage.dart';
 import 'package:rate_my_bistro/state/Keys.dart';
+import 'package:rate_my_bistro/theme/ThemeData.dart';
 import 'package:redux/redux.dart';
-
-import 'pages/login/SignInPage.dart';
-import 'theme/ThemeData.dart';
-import 'model/Menu.dart';
 
 /// Builder for the Bistro application
 ///
@@ -34,12 +33,6 @@ class BistroApp extends StatefulWidget {
 class _BistroAppState extends State<BistroApp> {
   Category _currentCategory = Category.Home;
 
-  /// Handles a new Category selection
-  ///
-  /// TODO: Implement/Remove Stub method
-  ///
-  void _onCategoryTap() {}
-
   /// Builds the underlying MaterialApp and
   /// connects it with the application's store
   ///
@@ -56,7 +49,6 @@ class _BistroAppState extends State<BistroApp> {
           home: MenuListPage(
             // TODO: get rid of these injection with Redux
             currentCategory: _currentCategory,
-            onCategoryTap: _onCategoryTap,
           ),
           initialRoute: "/signin",
           navigatorKey: Keys.navKey,
@@ -66,12 +58,10 @@ class _BistroAppState extends State<BistroApp> {
             "/home": (BuildContext context) => new MenuListPage(
                   // TODO: get rid of these injections with Redux
                   currentCategory: _currentCategory,
-                  onCategoryTap: _onCategoryTap,
                 ),
             "/detail": (BuildContext context) => new MenuDetailPage(
                 // TODO: get rid of these injections with Redux
                 currentCategory: _currentCategory,
-                onCategoryTap: _onCategoryTap,
                 menu: null)
           }),
     );

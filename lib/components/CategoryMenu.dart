@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
-
-import '../theme/ThemeData.dart';
-import '../model/Menu.dart';
+import 'package:rate_my_bistro/model/Menu.dart';
+import 'package:rate_my_bistro/theme/ThemeData.dart';
 
 /// Widget that provides a quick navigation
 /// through all available app pages
@@ -13,22 +12,19 @@ import '../model/Menu.dart';
 ///
 class CategoryMenu extends StatelessWidget {
   final Category currentCategory;
-  final ValueChanged<Category> onCategoryTap;
   final List<Category> _categories = Category.values;
 
   const CategoryMenu({
     Key key,
     @required this.currentCategory,
-    @required this.onCategoryTap,
-  })  : assert(currentCategory != null),
-        assert(onCategoryTap != null);
+  })  : assert(currentCategory != null);
 
   Widget _buildCategory(Category category, BuildContext context) {
     final categoryString =
         category.toString().replaceAll('Category.', '').toUpperCase();
 
     return GestureDetector(
-      onTap: () => onCategoryTap(category),
+      onTap: () {},
       child: category == currentCategory
           ? Column(
               children: <Widget>[

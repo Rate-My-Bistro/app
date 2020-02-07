@@ -1,7 +1,6 @@
+import 'package:rate_my_bistro/reducers/AuthReducer.dart';
+import 'package:rate_my_bistro/reducers/SignInReducer.dart';
 import 'package:rate_my_bistro/state/AppState.dart';
-
-import 'AuthReducer.dart';
-import 'SignInReducer.dart';
 
 /// Composes all application reducers into one
 ///

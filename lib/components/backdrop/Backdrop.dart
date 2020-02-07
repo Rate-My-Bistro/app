@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
-
-import '../../model/Menu.dart';
-import '../../pages/login/SignInPage.dart';
-import 'BackdropTitle.dart';
-import 'FrontLayer.dart';
+import 'package:rate_my_bistro/components/backdrop/BackdropTitle.dart';
+import 'package:rate_my_bistro/components/backdrop/FrontLayer.dart';
+import 'package:rate_my_bistro/model/Menu.dart';
+import 'package:rate_my_bistro/pages/login/SignInPage.dart';
 
 /// Widget that composes a stack of two views
 /// which can switch their visibility

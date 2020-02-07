@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-
-import '../components/CutCornersBorder.dart';
-import 'Colors.dart';
+import 'package:rate_my_bistro/components/CutCornersBorder.dart';
+import 'package:rate_my_bistro/theme/Colors.dart';
 
 /// The Application's global design
 ///

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-
-import '../theme/ThemeData.dart';
+import 'package:rate_my_bistro/theme/ThemeData.dart';
 
 /// Component that displays the dates
 /// of a given week

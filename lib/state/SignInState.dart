@@ -1,7 +1,6 @@
 import 'package:meta/meta.dart';
-
-import 'LoadingStatus.dart';
-import 'ScreenState.dart';
+import 'package:rate_my_bistro/state/LoadingStatus.dart';
+import 'package:rate_my_bistro/state/ScreenState.dart';
 
 /// Sign In State of the application
 ///

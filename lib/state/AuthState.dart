@@ -1,6 +1,5 @@
 import 'package:meta/meta.dart';
-
-import 'LoadingStatus.dart';
+import 'package:rate_my_bistro/state/LoadingStatus.dart';
 
 /// Auth State of the application
 ///

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 
-import '../../actions/AuthActions.dart';
-import '../../theme/ThemeData.dart';
-import 'SignInViewModel.dart';
+import 'package:rate_my_bistro/actions/AuthActions.dart';
+import 'package:rate_my_bistro/pages/login/SignInViewModel.dart';
+import 'package:rate_my_bistro/theme/ThemeData.dart';
 
 /// Page that handles the SignIn process
 ///

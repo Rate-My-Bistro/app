@@ -1,11 +1,10 @@
+import 'package:rate_my_bistro/actions/AuthActions.dart';
+import 'package:rate_my_bistro/actions/AuthRequest.dart';
+import 'package:rate_my_bistro/state/AppState.dart';
+import 'package:rate_my_bistro/state/LoadingStatus.dart';
+import 'package:rate_my_bistro/state/ScreenState.dart';
+import 'package:rate_my_bistro/values/English.dart';
 import 'package:redux/redux.dart';
-
-import '../actions/AuthActions.dart';
-import '../actions/AuthRequest.dart';
-import '../values/English.dart';
-import '../state/AppState.dart';
-import '../state/LoadingStatus.dart';
-import '../state/ScreenState.dart';
 
 /// Middleware that validates any given user input
 ///

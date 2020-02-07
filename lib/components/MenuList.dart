@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:rate_my_bistro/components/MenuDateBar.dart';
+import 'package:rate_my_bistro/model/Menu.dart';
+import 'package:rate_my_bistro/model/MenuRepository.dart';
 import 'package:rate_my_bistro/pages/MenuDetailPage.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-
-import '../theme/ThemeData.dart';
-import '../model/MenuRepository.dart';
-import '../model/Menu.dart';
+import 'package:rate_my_bistro/theme/ThemeData.dart';
 
 /// Widget that lists all meals
 /// of a specific time range
@@ -19,10 +18,11 @@ import '../model/Menu.dart';
 class MenuList extends StatelessWidget {
   final Category category;
   final Function onMenuTap;
-  final Function onCategoryTap;
 
-  const MenuList(
-      {this.category: Category.Home, this.onMenuTap, this.onCategoryTap});
+  const MenuList({
+    this.category: Category.Home,
+    this.onMenuTap
+  });
 
   List<GestureDetector> _buildMenuList(BuildContext context) {
     List<Menu> products = MenusRepository.loadMenus(category);
@@ -43,7 +43,7 @@ class MenuList extends StatelessWidget {
                   builder: (BuildContext context) => MenuDetailPage(
                       currentCategory: category,
                       menu: product,
-                      onCategoryTap: onCategoryTap)),
+                  )),
             );
           },
           child: Card(

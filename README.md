@@ -22,7 +22,7 @@ owner didn't know what he had to expect. When he ate his first meal in the compa
 they were kidding him - phewww damn this tastes like shit :O. From this day on, the repository owner
 was not happy anymore and consequently thought about possible ways to improve his situation. 
 
-Out of the sudden he came to the conclusion that he has to be the savior for all his colleagues and
+Out of the sudden he came to the conclusion that he had to be the savior for all his colleagues and
 started developing an app that tells the bistro how shitty their food is...
  
 Et voila: Rate my Bistro was born. :-)

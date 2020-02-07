@@ -1,9 +1,8 @@
+import 'package:rate_my_bistro/actions/AuthActions.dart';
+import 'package:rate_my_bistro/state/AuthState.dart';
+import 'package:rate_my_bistro/state/LoadingStatus.dart';
+import 'package:rate_my_bistro/state/ScreenState.dart';
 import 'package:redux/redux.dart';
-
-import '../actions/AuthActions.dart';
-import '../state/AuthState.dart';
-import '../state/LoadingStatus.dart';
-import '../state/ScreenState.dart';
 
 /// Composition of all auth related handlers
 ///

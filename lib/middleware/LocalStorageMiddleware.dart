@@ -1,9 +1,8 @@
+import 'package:rate_my_bistro/actions/AuthActions.dart';
+import 'package:rate_my_bistro/state/AppState.dart';
+import 'package:rate_my_bistro/values/Constants.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:redux/redux.dart';
-
-import '../actions/AuthActions.dart';
-import '../state/AppState.dart';
-import '../values/Constants.dart';
 
 /// Middleware that persist the application's
 /// state in a local storage

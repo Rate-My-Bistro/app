@@ -1,9 +1,8 @@
+import 'package:rate_my_bistro/actions/AuthActions.dart';
+import 'package:rate_my_bistro/state/LoadingStatus.dart';
+import 'package:rate_my_bistro/state/ScreenState.dart';
+import 'package:rate_my_bistro/state/SignInState.dart';
 import 'package:redux/redux.dart';
-
-import '../actions/AuthActions.dart';
-import '../state/LoadingStatus.dart';
-import '../state/ScreenState.dart';
-import '../state/SignInState.dart';
 
 /// Composition of all signin related handlers
 ///

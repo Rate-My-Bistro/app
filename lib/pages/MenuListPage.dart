@@ -1,10 +1,9 @@
 import 'package:flutter/cupertino.dart';
-
-import '../theme/ThemeData.dart';
-import '../components/backdrop/Backdrop.dart';
-import '../components/CategoryMenu.dart';
-import '../components/MenuList.dart';
-import '../model/Menu.dart';
+import 'package:rate_my_bistro/components/CategoryMenu.dart';
+import 'package:rate_my_bistro/components/MenuList.dart';
+import 'package:rate_my_bistro/components/backdrop/Backdrop.dart';
+import 'package:rate_my_bistro/model/Menu.dart';
+import 'package:rate_my_bistro/theme/ThemeData.dart';
 
 /// Page that lists all meals for a given date
 ///
@@ -13,12 +12,10 @@ import '../model/Menu.dart';
 class MenuListPage extends StatelessWidget {
   final Category currentCategory;
   final Function onMenuTap;
-  final Function onCategoryTap;
 
   const MenuListPage({
     @required this.currentCategory,
     @required this.onMenuTap,
-    @required this.onCategoryTap,
   });
 
   @override
@@ -28,10 +25,9 @@ class MenuListPage extends StatelessWidget {
       frontLayer: MenuList(
           category: currentCategory,
           onMenuTap: onMenuTap,
-          onCategoryTap: onCategoryTap),
+      ),
       backLayer: CategoryMenu(
         currentCategory: currentCategory,
-        onCategoryTap: onCategoryTap,
       ),
       frontTitle: Text(
         'Rate my Bistro',

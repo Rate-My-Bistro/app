@@ -1,10 +1,9 @@
 import 'package:flutter/cupertino.dart';
-
-import '../theme/ThemeData.dart';
-import '../components/backdrop/Backdrop.dart';
-import '../components/CategoryMenu.dart';
-import '../components/MenuDetail.dart';
-import '../model/Menu.dart';
+import 'package:rate_my_bistro/components/CategoryMenu.dart';
+import 'package:rate_my_bistro/components/MenuDetail.dart';
+import 'package:rate_my_bistro/components/backdrop/Backdrop.dart';
+import 'package:rate_my_bistro/model/Menu.dart';
+import 'package:rate_my_bistro/theme/ThemeData.dart';
 
 /// Page that shows detailed information about a specific meal
 ///
@@ -13,11 +12,9 @@ import '../model/Menu.dart';
 class MenuDetailPage extends StatelessWidget {
   final Category currentCategory;
   final Menu menu;
-  final Function onCategoryTap;
 
   const MenuDetailPage({
     @required this.currentCategory,
-    @required this.onCategoryTap,
     @required this.menu,
   });
 
@@ -28,7 +25,6 @@ class MenuDetailPage extends StatelessWidget {
       frontLayer: MenuDetail(menu: menu),
       backLayer: CategoryMenu(
         currentCategory: currentCategory,
-        onCategoryTap: onCategoryTap,
       ),
       frontTitle: Text(
         'Rate my Bistro',

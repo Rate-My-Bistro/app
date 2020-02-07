@@ -1,4 +1,6 @@
-import 'Menu.dart';
+
+
+import 'package:rate_my_bistro/model/Menu.dart';
 
 /// TODO: Move this code into State and ViewModels
 ///

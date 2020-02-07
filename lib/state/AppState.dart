@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:rate_my_bistro/model/Menu.dart';
+import 'package:rate_my_bistro/state/AuthState.dart';
+import 'package:rate_my_bistro/state/SignInState.dart';
 
-import '../model/Menu.dart';
-import 'AuthState.dart';
-import 'SignInState.dart';
 
 /// Root State of the application
 ///
