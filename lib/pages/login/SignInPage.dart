@@ -3,6 +3,7 @@ import 'package:flutter_redux/flutter_redux.dart';
 
 import 'package:rate_my_bistro/actions/AuthActions.dart';
 import 'package:rate_my_bistro/pages/login/SignInViewModel.dart';
+import 'package:rate_my_bistro/state/AppState.dart';
 import 'package:rate_my_bistro/theme/ThemeData.dart';
 
 /// Page that handles the SignIn process
@@ -21,7 +22,7 @@ class _SignInPageState extends State<SignInPage> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      body: new StoreConnector(
+      body: new StoreConnector<AppState, SignInViewModel>(
         onInit: (store) {
           store.dispatch(new ClearErrorsAction());
           store.dispatch(new CheckTokenAction(

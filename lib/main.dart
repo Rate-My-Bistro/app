@@ -8,10 +8,10 @@ import 'package:rate_my_bistro/store.dart';
 ///
 /// Represents the acutal entrypoint
 /// for the whole application
-void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
+void main() {
+  // WidgetsFlutterBinding.ensureInitialized();
 
-  final store = await createStore();
+  final store = createStore();
   final appTitle = 'Rate my Bistro';
 
   runApp(new BistroApp(store, appTitle));

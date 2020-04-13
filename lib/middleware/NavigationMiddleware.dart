@@ -16,6 +16,10 @@ class NavigationMiddleware extends MiddlewareClass<AppState> {
     if (action is NavigateToRegistrationAction) {
       Keys.navKey.currentState.pushNamed("/signup");
     }
+    
+    if (action is NavigateToHomeAction) {
+      Keys.navKey.currentState.pushNamed("/home");
+    }
 
     next(action);
   }

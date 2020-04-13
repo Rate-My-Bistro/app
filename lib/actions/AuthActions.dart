@@ -133,3 +133,5 @@ class CheckTokenAction {
 class ClearErrorsAction {}
 
 class NavigateToRegistrationAction {}
+
+class NavigateToHomeAction {}

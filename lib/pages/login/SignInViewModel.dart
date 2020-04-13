@@ -23,19 +23,20 @@ class SignInViewModel {
   final Function navigateToRegistration;
   final Function navigateToHome;
 
-  SignInViewModel(
-      {this.status,
-      this.type,
-      this.password,
-      this.passwordError,
-      this.email,
-      this.emailError,
-      this.validateEmail,
-      this.validatePassword,
-      this.login,
-      this.clearError,
-      this.navigateToRegistration,
-      this.navigateToHome});
+  SignInViewModel({
+    this.status,
+    this.type,
+    this.password,
+    this.passwordError,
+    this.email,
+    this.emailError,
+    this.validateEmail,
+    this.validatePassword,
+    this.login,
+    this.clearError,
+    this.navigateToRegistration,
+    this.navigateToHome
+  });
 
   static SignInViewModel fromStore(Store<AppState> store) {
     return SignInViewModel(
@@ -53,6 +54,7 @@ class SignInViewModel {
           store.dispatch(new ValidateLoginFields(email, password));
         },
         clearError: () => store.dispatch(new ClearErrorsAction()),
+        navigateToHome: () => store.dispatch(new NavigateToHomeAction()),
         navigateToRegistration: () =>
             store.dispatch(new NavigateToRegistrationAction()));
   }
