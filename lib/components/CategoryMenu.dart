@@ -17,7 +17,7 @@ class CategoryMenu extends StatelessWidget {
   const CategoryMenu({
     Key key,
     @required this.currentCategory,
-  })  : assert(currentCategory != null);
+  }) : assert(currentCategory != null);
 
   Widget _buildCategory(Category category, BuildContext context) {
     final categoryString =

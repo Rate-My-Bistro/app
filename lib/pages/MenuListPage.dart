@@ -23,8 +23,8 @@ class MenuListPage extends StatelessWidget {
     return Backdrop(
       currentCategory: currentCategory,
       frontLayer: MenuList(
-          category: currentCategory,
-          onMenuTap: onMenuTap,
+        category: currentCategory,
+        onMenuTap: onMenuTap,
       ),
       backLayer: CategoryMenu(
         currentCategory: currentCategory,

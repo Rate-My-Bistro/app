@@ -19,10 +19,7 @@ class MenuList extends StatelessWidget {
   final Category category;
   final Function onMenuTap;
 
-  const MenuList({
-    this.category: Category.Home,
-    this.onMenuTap
-  });
+  const MenuList({this.category: Category.Home, this.onMenuTap});
 
   List<GestureDetector> _buildMenuList(BuildContext context) {
     List<Menu> products = MenusRepository.loadMenus(category);
@@ -41,9 +38,9 @@ class MenuList extends StatelessWidget {
               context,
               MaterialPageRoute(
                   builder: (BuildContext context) => MenuDetailPage(
-                      currentCategory: category,
-                      menu: product,
-                  )),
+                        currentCategory: category,
+                        menu: product,
+                      )),
             );
           },
           child: Card(

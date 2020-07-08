@@ -33,7 +33,8 @@ class Backdrop extends StatefulWidget {
   _BackdropState createState() => _BackdropState();
 }
 
-class _BackdropState extends State<Backdrop> with SingleTickerProviderStateMixin {
+class _BackdropState extends State<Backdrop>
+    with SingleTickerProviderStateMixin {
   static final double _kFlingVelocity = 2.0;
 
   final GlobalKey _backdropKey = GlobalKey(debugLabel: 'Backdrop');
@@ -75,7 +76,7 @@ class _BackdropState extends State<Backdrop> with SingleTickerProviderStateMixin
 
   void _toggleBackdropLayerVisibility() {
     _controller.fling(
-        velocity: _frontLayerVisible ? - _kFlingVelocity : _kFlingVelocity);
+        velocity: _frontLayerVisible ? -_kFlingVelocity : _kFlingVelocity);
   }
 
   Widget _buildStack(BuildContext context, BoxConstraints constraints) {

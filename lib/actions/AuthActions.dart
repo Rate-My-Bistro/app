@@ -5,7 +5,6 @@ import 'package:rate_my_bistro/actions/SignUpRequest.dart';
 import 'package:rate_my_bistro/state/LoadingStatus.dart';
 import 'package:rate_my_bistro/state/ScreenState.dart';
 
-
 /// Collection of all triggers to change the auth state
 ///
 /// @author Ansgar Sachs <ansgar.sachs@cgm.com>
@@ -131,7 +130,3 @@ class CheckTokenAction {
 }
 
 class ClearErrorsAction {}
-
-class NavigateToRegistrationAction {}
-
-class NavigateToHomeAction {}

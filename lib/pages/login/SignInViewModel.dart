@@ -1,4 +1,5 @@
 import 'package:rate_my_bistro/actions/AuthActions.dart';
+import 'package:rate_my_bistro/actions/NavigationActions.dart';
 import 'package:rate_my_bistro/state/AppState.dart';
 import 'package:rate_my_bistro/state/LoadingStatus.dart';
 import 'package:rate_my_bistro/state/ScreenState.dart';
@@ -23,20 +24,19 @@ class SignInViewModel {
   final Function navigateToRegistration;
   final Function navigateToHome;
 
-  SignInViewModel({
-    this.status,
-    this.type,
-    this.password,
-    this.passwordError,
-    this.email,
-    this.emailError,
-    this.validateEmail,
-    this.validatePassword,
-    this.login,
-    this.clearError,
-    this.navigateToRegistration,
-    this.navigateToHome
-  });
+  SignInViewModel(
+      {this.status,
+      this.type,
+      this.password,
+      this.passwordError,
+      this.email,
+      this.emailError,
+      this.validateEmail,
+      this.validatePassword,
+      this.login,
+      this.clearError,
+      this.navigateToRegistration,
+      this.navigateToHome});
 
   static SignInViewModel fromStore(Store<AppState> store) {
     return SignInViewModel(

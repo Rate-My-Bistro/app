@@ -12,13 +12,15 @@ enum Category {
 }
 
 class Menu {
-  const Menu({
-    @required this.category,
-    @required this.id,
-    @required this.isFeatured,
-    @required this.name,
-    @required this.price,
-  })  : assert(category != null),
+  const Menu(
+      {@required this.category,
+      @required this.id,
+      @required this.isFeatured,
+      @required this.name,
+      @required this.price,
+      this.userRating,
+      this.communityRating})
+      : assert(category != null),
         assert(id != null),
         assert(isFeatured != null),
         assert(name != null),
@@ -26,6 +28,8 @@ class Menu {
 
   final Category category;
   final int id;
+  final double userRating;
+  final double communityRating;
   final bool isFeatured;
   final String name;
   final double price;

@@ -1,4 +1,5 @@
 import 'package:rate_my_bistro/actions/AuthActions.dart';
+import 'package:rate_my_bistro/actions/NavigationActions.dart';
 import 'package:rate_my_bistro/state/AuthState.dart';
 import 'package:rate_my_bistro/state/LoadingStatus.dart';
 import 'package:rate_my_bistro/state/ScreenState.dart';

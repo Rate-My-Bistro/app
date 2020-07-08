@@ -28,15 +28,15 @@ class FrontLayer extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
           shouldHideGestures()
-            ? Expanded(child: child)
-            : GestureDetector(
-            behavior: HitTestBehavior.opaque,
-            onTap: onTap,
-            child: Container(
-              height: 40.0,
-              alignment: AlignmentDirectional.centerStart,
-            ),
-          ),
+              ? Expanded(child: child)
+              : GestureDetector(
+                  behavior: HitTestBehavior.opaque,
+                  onTap: onTap,
+                  child: Container(
+                    height: 40.0,
+                    alignment: AlignmentDirectional.centerStart,
+                  ),
+                ),
         ],
       ),
     );

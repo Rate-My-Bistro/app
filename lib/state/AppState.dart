@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:rate_my_bistro/model/Menu.dart';
 import 'package:rate_my_bistro/state/AuthState.dart';
+import 'package:rate_my_bistro/state/MenuState.dart';
 import 'package:rate_my_bistro/state/SignInState.dart';
-
 
 /// Root State of the application
 ///
@@ -14,33 +14,33 @@ import 'package:rate_my_bistro/state/SignInState.dart';
 class AppState {
   final SignInState signInState;
   final AuthState authState;
-  final List<Menu> menus;
+  final MenuState menuState;
   final Category category;
 
   AppState(
       {@required this.signInState,
       @required this.authState,
-      this.menus,
+      @required this.menuState,
       this.category});
 
   factory AppState.initial() {
     return AppState(
         authState: AuthState.initial(),
         signInState: SignInState.initial(),
-        menus: List.unmodifiable([]),
+        menuState: MenuState.initial(),
         category: null);
   }
 
   AppState copyWith({
     AuthState authState,
     SignInState signInState,
-    List<Menu> menus,
+    MenuState menuState,
     Category category,
   }) {
     return AppState(
         authState: authState ?? this.authState,
         signInState: signInState ?? this.signInState,
-        menus: menus ?? this.menus,
+        menuState: menuState ?? this.menuState,
         category: category ?? this.category);
   }
 
@@ -51,7 +51,7 @@ class AppState {
           runtimeType == other.runtimeType &&
           authState == other.authState &&
           signInState == other.signInState &&
-          menus == other.menus &&
+          menuState == other.menuState &&
           category == other.category;
 
   @override
@@ -59,5 +59,5 @@ class AppState {
       authState.hashCode ^
       signInState.hashCode ^
       category.hashCode ^
-      menus.hashCode;
+      menuState.hashCode;
 }

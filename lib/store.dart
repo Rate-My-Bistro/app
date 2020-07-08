@@ -18,7 +18,7 @@ import 'package:redux_logging/redux_logging.dart';
 /// @return store used for maintaining the application's state
 ///
 // Future<Store<AppState>> createStore() async {
-  // var prefs = await SharedPreferences.getInstance();
+// var prefs = await SharedPreferences.getInstance();
 Store<AppState> createStore() {
   return Store(
     appReducer,

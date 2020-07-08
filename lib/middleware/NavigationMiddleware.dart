@@ -1,4 +1,4 @@
-import 'package:rate_my_bistro/actions/AuthActions.dart';
+import 'package:rate_my_bistro/actions/NavigationActions.dart';
 import 'package:rate_my_bistro/state/AppState.dart';
 import 'package:rate_my_bistro/state/Keys.dart';
 import 'package:redux/redux.dart';
@@ -16,9 +16,9 @@ class NavigationMiddleware extends MiddlewareClass<AppState> {
     if (action is NavigateToRegistrationAction) {
       Keys.navKey.currentState.pushNamed("/signup");
     }
-    
+
     if (action is NavigateToHomeAction) {
-      Keys.navKey.currentState.pushNamed("/home");
+      Keys.navKey.currentState.pushReplacementNamed("/home");
     }
 
     next(action);

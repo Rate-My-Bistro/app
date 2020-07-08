@@ -16,9 +16,9 @@ class BackdropTitle extends AnimatedWidget {
     this.onPress,
     @required this.frontTitle,
     @required this.backTitle,
-  }) : assert(frontTitle != null),
-      assert(backTitle != null),
-      super(key: key, listenable: listenable);
+  })  : assert(frontTitle != null),
+        assert(backTitle != null),
+        super(key: key, listenable: listenable);
 
   @override
   Widget build(BuildContext context) {
