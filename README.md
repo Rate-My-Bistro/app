@@ -1,4 +1,4 @@
-# Rate my Bistro
+# Rate my Bistro: App
 
 > Don't be a fool: you deserve good food.
 
