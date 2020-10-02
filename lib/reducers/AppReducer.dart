@@ -1,4 +1,5 @@
 import 'package:rate_my_bistro/reducers/AuthReducer.dart';
+import 'package:rate_my_bistro/reducers/MenuReducer.dart';
 import 'package:rate_my_bistro/reducers/SignInReducer.dart';
 import 'package:rate_my_bistro/state/AppState.dart';
 
@@ -9,6 +10,6 @@ import 'package:rate_my_bistro/state/AppState.dart';
 AppState appReducer(AppState state, dynamic action) => new AppState(
     authState: authReducer(state.authState, action),
     signInState: signInReducer(state.signInState, action),
-    menuState: state.menuState,
+    menuState: menuReducer(state.menuState, action),
     category: state.category
 );

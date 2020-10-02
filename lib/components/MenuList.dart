@@ -18,11 +18,18 @@ import 'package:rate_my_bistro/theme/ThemeData.dart';
 class MenuList extends StatelessWidget {
   final Category category;
   final Function onMenuTap;
+  final Function onMenuDaySelect;
+  final DateTime selectedMenuDay;
 
-  const MenuList({this.category: Category.Home, this.onMenuTap});
+  const MenuList({
+    this.category: Category.Home,
+    this.onMenuTap,
+    this.onMenuDaySelect,
+    this.selectedMenuDay,
+  });
 
   List<GestureDetector> _buildMenuList(BuildContext context) {
-    List<Menu> products = MenusRepository.loadMenus(category);
+    List<Menu> products = MenusRepository.loadMenus(category, selectedMenuDay);
 
     if (products == null || products.isEmpty) {
       return const <GestureDetector>[];
@@ -135,7 +142,7 @@ class MenuList extends StatelessWidget {
       padding: EdgeInsets.only(top: 2.0, left: 5.0, bottom: 3, right: 5),
       child: Column(
         children: <Widget>[
-          Row(children: <Widget>[MenuDateBar()]),
+          Row(children: <Widget>[MenuDateBar(selectedMenuDay: this.selectedMenuDay, onMenuDaySelect: this.onMenuDaySelect)]),
           Expanded(
             child: GridView.count(
                 crossAxisCount: 1,

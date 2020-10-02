@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:rate_my_bistro/theme/ThemeData.dart';
+import 'package:rate_my_bistro/utils/DateUtils.dart';
 
 /// Component that displays the dates
 /// of a given week
@@ -13,49 +14,32 @@ import 'package:rate_my_bistro/theme/ThemeData.dart';
 ///
 /// @author Ansgar Sachs <ansgar.sachs@cgm.com>
 ///
-class MenuDateBar extends StatefulWidget {
-  @override
-  _MenuDateBarState createState() => _MenuDateBarState();
-}
+class MenuDateBar extends StatelessWidget {
+  final DateTime selectedMenuDay;
+  final Function onMenuDaySelect;
 
-class _MenuDateBarState extends State<MenuDateBar> {
-  static int calculateWeekNumber(DateTime date) {
-    int dayOfYear = int.parse(DateFormat("D").format(date));
-    return ((dayOfYear - date.weekday + 10) / 7).floor();
-  }
+  const MenuDateBar({
+      this.selectedMenuDay,
+      this.onMenuDaySelect,
+  });
 
-  int currentWeek = calculateWeekNumber(DateTime.now());
-  DateTime shownDate = DateTime.now();
-
-  void onNextDay() {
-    setState(() {
-      shownDate = shownDate.add(Duration(days: 7));
-    });
-  }
-
-  void onPreviousDay() {
-    setState(() {
-      shownDate = shownDate.subtract(Duration(days: 7));
-    });
-  }
-
-  int get shownWeek {
-    return calculateWeekNumber(shownDate);
-  }
+  void onNextDay() => this.onMenuDaySelect(selectedMenuDay.add(Duration(days: 1)));
+  void onPreviousDay() => this.onMenuDaySelect(selectedMenuDay.subtract(Duration(days: 1)));
 
   String get dateDescriptor {
-    final firstDayOfTheWeek =
-        shownDate.subtract(new Duration(days: shownDate.weekday));
-    final lastDayOfTheWeek =
-        shownDate.add(new Duration(days: 7 - shownDate.weekday));
-    String firstDate = firstDayOfTheWeek.day.toString() +
-        "." +
-        firstDayOfTheWeek.month.toString();
-    String lastDate = lastDayOfTheWeek.day.toString() +
-        "." +
-        lastDayOfTheWeek.month.toString();
+    if (DateUtils.isSameDay(this.selectedMenuDay, DateUtils.getToday())) {
+      return "Heute";
+    }
 
-    return firstDate + " - " + lastDate;
+    if (DateUtils.isSameDay(this.selectedMenuDay, DateUtils.getTomorrow())) {
+      return "Morgen";
+    }
+
+    if (DateUtils.isSameDay(this.selectedMenuDay, DateUtils.getYesterday())) {
+      return "Gestern";
+    }
+
+    return new DateFormat("d. MMMM").format(this.selectedMenuDay);
   }
 
   @override

@@ -18,6 +18,9 @@ const create_account = "Create account";
 const retype_password = "Re-Type Password";
 const undefined = "Unidentified";
 const create = "Create";
+const today = "Today";
+const tomorrow = "Tomorrow";
+const yesterday = "Yesterday";
 
 // Errors
 const email_error = "Email is not valid.";

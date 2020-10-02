@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:rate_my_bistro/components/CategoryMenu.dart';
@@ -26,9 +24,7 @@ class MenuListPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new StoreConnector<AppState, MenuListViewModel>(
-        onInit: (store) {
-          print(store);
-        },
+        onInit: (store) {},
         converter: (store) => MenuListViewModel.fromStore(store),
         builder: (_, viewModel) => buildContent(viewModel)
     );
@@ -40,6 +36,8 @@ class MenuListPage extends StatelessWidget {
       frontLayer: MenuList(
         category: currentCategory,
         onMenuTap: onMenuTap,
+        selectedMenuDay: viewModel.selectedMenuDay,
+        onMenuDaySelect: viewModel.selectMenuDay,
       ),
       backLayer: CategoryMenu(
         currentCategory: currentCategory,

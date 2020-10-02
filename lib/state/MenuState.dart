@@ -9,34 +9,58 @@ class MenuState {
   final ScreenState type;
   final LoadingStatus loadingStatus;
   final List<Menu> menus;
-  final int selected;
+  final DateTime selectedMenuDay;
+  final int selectedMenu;
 
   MenuState({
-    this.loadingStatus,
-    this.type,
-    this.menus,
-    this.selected,
+    @required this.loadingStatus,
+    @required this.type,
+    @required this.menus,
+    @required this.selectedMenuDay,
+    this.selectedMenu,
   });
+
+  factory MenuState.initial() {
+    return new MenuState(
+        type: ScreenState.WELCOME,
+        loadingStatus: LoadingStatus.SUCCESS,
+        menus: MenusRepository.loadMenus(Category.Home, DateTime.now()),
+        selectedMenuDay: DateTime.now(),
+        selectedMenu: null,
+    );
+  }
 
   MenuState copyWith({
     LoadingStatus loadingStatus,
     ScreenState type,
     List<Menu> menus,
+    DateTime selectedMenuDay,
     int selected,
   }) {
     return new MenuState(
         type: type ?? this.type,
         loadingStatus: loadingStatus ?? this.loadingStatus,
         menus: menus ?? this.menus,
-        selected: selected ?? this.selected
+        selectedMenuDay: selectedMenuDay ?? this.selectedMenuDay,
+        selectedMenu: selected ?? this.selectedMenu,
     );
   }
 
-  factory MenuState.initial() {
-    return new MenuState(
-        type: ScreenState.WELCOME,
-        loadingStatus: LoadingStatus.SUCCESS,
-        selected: null,
-        menus: MenusRepository.loadMenus(Category.Home));
-  }
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) &&
+      other is MenuState &&
+      runtimeType == other.runtimeType &&
+      loadingStatus == other.loadingStatus &&
+      menus == other.menus &&
+      selectedMenuDay == other.selectedMenuDay &&
+      selectedMenu == other.selectedMenu;
+
+  @override
+  int get hashCode =>
+      loadingStatus.hashCode ^
+      type.hashCode ^
+      menus.hashCode ^
+      selectedMenuDay.hashCode ^
+      selectedMenu.hashCode;
 }

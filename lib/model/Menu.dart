@@ -12,19 +12,21 @@ enum Category {
 }
 
 class Menu {
-  const Menu(
-      {@required this.category,
-      @required this.id,
-      @required this.isFeatured,
-      @required this.name,
-      @required this.price,
-      this.userRating,
-      this.communityRating})
-      : assert(category != null),
-        assert(id != null),
-        assert(isFeatured != null),
-        assert(name != null),
-        assert(price != null);
+  const Menu({
+    @required this.category,
+    @required this.id,
+    @required this.isFeatured,
+    @required this.name,
+    @required this.price,
+    @required this.date,
+    this.userRating,
+    this.communityRating
+  }) : assert(category != null),
+       assert(id != null),
+       assert(isFeatured != null),
+       assert(name != null),
+       assert(price != null),
+       assert(date != null);
 
   final Category category;
   final int id;
@@ -33,6 +35,7 @@ class Menu {
   final bool isFeatured;
   final String name;
   final double price;
+  final DateTime date;
 
   int get assetId => id % 6;
 
