@@ -1,8 +1,13 @@
+import 'dart:math';
+
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_redux/flutter_redux.dart';
 import 'package:rate_my_bistro/components/CategoryMenu.dart';
 import 'package:rate_my_bistro/components/MenuList.dart';
 import 'package:rate_my_bistro/components/backdrop/Backdrop.dart';
 import 'package:rate_my_bistro/model/Menu.dart';
+import 'package:rate_my_bistro/pages/menuList/MenuListViewModel.dart';
+import 'package:rate_my_bistro/state/AppState.dart';
 import 'package:rate_my_bistro/theme/ThemeData.dart';
 
 /// Page that lists all meals for a given date
@@ -20,6 +25,16 @@ class MenuListPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    return new StoreConnector<AppState, MenuListViewModel>(
+        onInit: (store) {
+          print(store);
+        },
+        converter: (store) => MenuListViewModel.fromStore(store),
+        builder: (_, viewModel) => buildContent(viewModel)
+    );
+  }
+
+  Widget buildContent(MenuListViewModel viewModel) {
     return Backdrop(
       currentCategory: currentCategory,
       frontLayer: MenuList(

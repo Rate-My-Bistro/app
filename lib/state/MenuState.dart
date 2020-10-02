@@ -6,8 +6,8 @@ import 'package:rate_my_bistro/state/ScreenState.dart';
 
 @immutable
 class MenuState {
-  final LoadingStatus loadingStatus;
   final ScreenState type;
+  final LoadingStatus loadingStatus;
   final List<Menu> menus;
   final int selected;
 
@@ -25,10 +25,11 @@ class MenuState {
     int selected,
   }) {
     return new MenuState(
-        loadingStatus: loadingStatus ?? this.loadingStatus,
         type: type ?? this.type,
+        loadingStatus: loadingStatus ?? this.loadingStatus,
         menus: menus ?? this.menus,
-        selected: selected ?? this.selected);
+        selected: selected ?? this.selected
+    );
   }
 
   factory MenuState.initial() {

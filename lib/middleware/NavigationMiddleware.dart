@@ -18,7 +18,7 @@ class NavigationMiddleware extends MiddlewareClass<AppState> {
     }
 
     if (action is NavigateToHomeAction) {
-      Keys.navKey.currentState.pushReplacementNamed("/home");
+      Keys.navKey.currentState.pushNamed("/home");
     }
 
     next(action);

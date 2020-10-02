@@ -20,15 +20,16 @@ class SignInState {
   final String code;
   final String codeError;
 
-  SignInState(
-      {this.type,
-      this.loadingStatus,
-      this.password,
-      this.passwordError,
-      this.email,
-      this.emailError,
-      this.code,
-      this.codeError});
+  SignInState({
+    this.type,
+    this.loadingStatus,
+    this.password,
+    this.passwordError,
+    this.email,
+    this.emailError,
+    this.code,
+    this.codeError
+  });
 
   SignInState copyWith({
     ScreenState type,

@@ -17,11 +17,12 @@ class AppState {
   final MenuState menuState;
   final Category category;
 
-  AppState(
-      {@required this.signInState,
-      @required this.authState,
-      @required this.menuState,
-      this.category});
+  AppState({
+    @required this.signInState,
+    @required this.authState,
+    @required this.menuState,
+    this.category
+  });
 
   factory AppState.initial() {
     return AppState(
@@ -41,7 +42,8 @@ class AppState {
         authState: authState ?? this.authState,
         signInState: signInState ?? this.signInState,
         menuState: menuState ?? this.menuState,
-        category: category ?? this.category);
+        category: category ?? this.category
+    );
   }
 
   @override

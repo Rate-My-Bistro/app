@@ -40,14 +40,9 @@ AuthState _validateEmail(AuthState state, ValidateEmailAction action) {
 AuthState _validatePassword(AuthState state, ValidatePasswordAction action) =>
     state.copyWith(password: action.password);
 
-AuthState _validateLoginFieldsAction(
-        AuthState state, ValidateLoginFields action) =>
-    state;
+AuthState _validateLoginFieldsAction(AuthState state, ValidateLoginFields action) => state;
 
-AuthState _validatePasswordMatch(
-        AuthState state, ValidatePasswordMatchAction action) =>
-    state.copyWith(
-        password: action.password, retypePassword: action.confirmPassword);
+AuthState _validatePasswordMatch(AuthState state, ValidatePasswordMatchAction action) => state.copyWith(password: action.password, retypePassword: action.confirmPassword);
 
 AuthState _validateCodeAction(AuthState state, ValidateCodeAction action) =>
     state.copyWith(code: action.code);

@@ -24,13 +24,13 @@ class _SignInPageState extends State<SignInPage> {
     return new Scaffold(
       body: new StoreConnector<AppState, SignInViewModel>(
         onInit: (store) {
-          store.dispatch(new ClearErrorsAction());
-          store.dispatch(new CheckTokenAction(
-            // TODO: Implement
-            hasTokenCallback: () {},
-            // TODO: Implement
-            noTokenCallback: () {},
-          ));
+//          store.dispatch(new ClearErrorsAction());
+//          store.dispatch(new CheckTokenAction(
+//            // TODO: Implement
+//            hasTokenCallback: () {},
+//            // TODO: Implement
+//            noTokenCallback: () {},
+//          ));
         },
         converter: (store) => SignInViewModel.fromStore(store),
         builder: (_, viewModel) => buildContent(viewModel),

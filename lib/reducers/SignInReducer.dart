@@ -23,25 +23,15 @@ final signInReducer = combineReducers<SignInState>([
   TypedReducer<SignInState, ChangeScreenStateAction>(_changeScreenStateAction),
 ]);
 
-SignInState _changeScreenStateAction(
-        SignInState state, ChangeScreenStateAction action) =>
-    state.copyWith(type: action.type);
+SignInState _changeScreenStateAction(SignInState state, ChangeScreenStateAction action) => state.copyWith(type: action.type);
 
-SignInState _validateEmail(SignInState state, ValidateEmailAction action) {
-  return state.copyWith(email: action.email);
-}
+SignInState _validateEmail(SignInState state, ValidateEmailAction action) => state.copyWith(email: action.email);
 
-SignInState _validatePassword(
-        SignInState state, ValidatePasswordAction action) =>
-    state.copyWith(password: action.password);
+SignInState _validatePassword(SignInState state, ValidatePasswordAction action) => state.copyWith(password: action.password);
 
-SignInState _validateLoginFieldsAction(
-        SignInState state, ValidateLoginFields action) =>
-    state;
+SignInState _validateLoginFieldsAction(SignInState state, ValidateLoginFields action) => state.copyWith();
 
-SignInState _changeLoadingStatusAction(
-        SignInState state, ChangeLoadingStatusAction action) =>
-    state.copyWith(loadingStatus: action.status);
+SignInState _changeLoadingStatusAction(SignInState state, ChangeLoadingStatusAction action) => state.copyWith(loadingStatus: action.status);
 
 SignInState _emailErrorAction(SignInState state, EmailErrorAction action) {
   if (action.screenState == ScreenState.SIGNIN) {
@@ -67,12 +57,13 @@ SignInState _confirmCodeAction(
         SignInState state, ConfirmForgotPasswordAction action) =>
     state;
 
-SignInState _checkTokenAction(SignInState state, CheckTokenAction action) =>
-    state;
+SignInState _checkTokenAction(SignInState state, CheckTokenAction action) => state.copyWith();
 
-SignInState _clearErrorsAction(SignInState state, ClearErrorsAction action) =>
-    state.copyWith(
-        loadingStatus: LoadingStatus.SUCCESS,
-        emailError: "",
-        passwordError: "",
-        retypePasswordError: "");
+SignInState _clearErrorsAction(SignInState state, ClearErrorsAction action) {
+  return state.copyWith(
+      loadingStatus: LoadingStatus.SUCCESS,
+      emailError: "",
+      passwordError: "",
+      retypePasswordError: ""
+  );
+}

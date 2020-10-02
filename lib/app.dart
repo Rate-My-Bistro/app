@@ -4,7 +4,7 @@ import 'package:rate_my_bistro/model/Menu.dart';
 import 'package:rate_my_bistro/pages/MenuDetailPage.dart';
 import 'package:rate_my_bistro/pages/login/SignInPage.dart';
 import 'package:rate_my_bistro/state/AppState.dart';
-import 'package:rate_my_bistro/pages/MenuListPage.dart';
+import 'package:rate_my_bistro/pages/menuList/MenuListPage.dart';
 import 'package:rate_my_bistro/state/Keys.dart';
 import 'package:rate_my_bistro/theme/ThemeData.dart';
 import 'package:redux/redux.dart';
